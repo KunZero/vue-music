@@ -1,0 +1,8 @@
+<scroll
+    v-bind="$props"
+    @scroll="$emit('scroll',$event)"
+    >
+    <slot></slot>
+</scroll>
+
+组件封装

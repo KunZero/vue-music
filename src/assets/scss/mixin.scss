@@ -1,0 +1,27 @@
+// 背景图片 例如iPhone4S，分辨率为：960×640，取屏幕宽度计算，物理像素640px，设备独立像素320px，那么，devicePixelRatio 值为 640px / 320px = 2，又如iPhone3，计算出来的 devicePixelRatio 值为 320px / 320px = 1
+@mixin bg-image($url) {
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+}
+
+// 禁止折行
+@mixin no-wrap() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 扩展小图标按钮的点击区域
+@mixin extend-click() {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
